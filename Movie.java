@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Movie {
 
@@ -53,21 +53,14 @@ public class Movie {
                         System.out.print("Enter the Serial number of the theater: ");
                         bookedTheater = sc.nextInt();
 
-                        System.out.println("Select Screen number: ");
-                        System.out.println("1. Screen 1");
-                        System.out.println("2. Screen 2");
-                        System.out.println("3. Screen 3");
-                        System.out.println("*******************************");
-                        System.out.print("Enter the Screen number: ");
-                        bookedScreen = sc.nextInt();
-
-                        if (bookedTheater >= 1 && bookedTheater <= 3 && bookedScreen >= 1 && bookedScreen <= 3) {
+                        if (bookedTheater >= 1 && bookedTheater <= 3) {
+                            bookedScreen = (int)(Math.random() * 3) + 1;
                             System.out.println("--------------------------------------");
-                            System.out.println("You have booked " + getMovieName(bookedMovie) + " at " + getTheaterName(bookedTheater) + " in screen number " + bookedScreen);
+                            System.out.println("You have booked " + getMovieName(bookedMovie) + " at " + getTheaterName(bookedTheater) + " and your sit has been assigned on Screen " + bookedScreen);
                             System.out.println("--------------------------------------");
                         } else {
                             System.out.println("Invalid choice! Please try again.");
-                            bookedMovie = 0; // Reset the booking if theater or screen choice is invalid
+                            bookedMovie = 0; // Reset the booking if theater choice is invalid
                         }
                     } else {
                         System.out.println("Invalid choice! Please try again.");
